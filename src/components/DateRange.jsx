@@ -7,13 +7,13 @@ export default function DateRange({ borrowDate, returnDate, onChange }) {
       : 0
 
   const inputCls =
-    'w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400 bg-white'
+    'w-full border-2 border-[#30363d] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#3fb950] bg-[#0d1117] text-[#e6edf3]'
 
   return (
     <div className="space-y-3">
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5">
+          <label className="block text-xs font-bold text-[#8b949e] uppercase tracking-wide mb-1.5">
             Tgl Pinjam
           </label>
           <input
@@ -29,7 +29,7 @@ export default function DateRange({ borrowDate, returnDate, onChange }) {
           />
         </div>
         <div>
-          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5">
+          <label className="block text-xs font-bold text-[#8b949e] uppercase tracking-wide mb-1.5">
             Tgl Kembali
           </label>
           <input
@@ -43,8 +43,8 @@ export default function DateRange({ borrowDate, returnDate, onChange }) {
         </div>
       </div>
       {days > 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
-          <span className="text-sm text-blue-700">
+        <div className="bg-[#0f2d1a] border border-[#238636] rounded-xl px-4 py-3">
+          <span className="text-sm text-[#3fb950]">
             Durasi sewa: <span className="font-bold">{days} hari</span>
           </span>
         </div>

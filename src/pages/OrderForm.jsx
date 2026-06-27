@@ -11,13 +11,13 @@ const fmt = (n) =>
   new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(n)
 
 const inputCls =
-  'w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400 bg-white placeholder-gray-300'
+  'w-full border-2 border-[#30363d] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#3fb950] bg-[#0d1117] text-[#e6edf3] placeholder-[#484f58]'
 
 function Field({ label, required, children }) {
   return (
     <div>
-      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5">
-        {label}{required && <span className="text-red-400 ml-0.5">*</span>}
+      <label className="block text-xs font-bold text-[#8b949e] uppercase tracking-wide mb-1.5">
+        {label}{required && <span className="text-[#f85149] ml-0.5">*</span>}
       </label>
       {children}
     </div>
@@ -26,12 +26,12 @@ function Field({ label, required, children }) {
 
 function Section({ number, title, children }) {
   return (
-    <section className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
-      <div className="px-5 py-4 border-b border-gray-100 bg-gray-50 flex items-center gap-3">
-        <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0">
+    <section className="bg-[#161b22] rounded-2xl border-2 border-[#30363d] overflow-hidden">
+      <div className="px-5 py-4 border-b border-[#30363d] bg-[#21262d] flex items-center gap-3">
+        <span className="w-7 h-7 rounded-full bg-[#238636] text-white text-xs font-bold flex items-center justify-center shrink-0">
           {number}
         </span>
-        <h2 className="font-semibold text-gray-700 text-sm">{title}</h2>
+        <h2 className="font-semibold text-[#e6edf3] text-sm">{title}</h2>
       </div>
       <div className="p-5">{children}</div>
     </section>
@@ -177,20 +177,20 @@ export default function OrderForm() {
     return (
       <div className="flex flex-col items-center text-center py-10 px-4">
         <div className="text-6xl mb-4">🎉</div>
-        <h2 className="text-2xl font-extrabold text-gray-800 mb-1">Pesanan Berhasil!</h2>
-        <p className="text-gray-400 text-sm mb-8">Simpan kode berikut untuk cek status.</p>
+        <h2 className="text-2xl font-extrabold text-[#f0f6fc] mb-1">Pesanan Berhasil!</h2>
+        <p className="text-[#8b949e] text-sm mb-8">Simpan kode berikut untuk cek status.</p>
 
-        <div className="w-full max-w-xs bg-blue-600 rounded-3xl px-8 py-6 mb-6">
-          <p className="text-blue-200 text-xs font-bold uppercase tracking-widest mb-1">Kode Pesanan</p>
+        <div className="w-full max-w-xs bg-[#238636] rounded-3xl px-8 py-6 mb-6">
+          <p className="text-[#7ee787] text-xs font-bold uppercase tracking-widest mb-1">Kode Pesanan</p>
           <p className="text-3xl font-extrabold text-white tracking-widest">{result.orderCode}</p>
         </div>
 
-        <div className="w-full max-w-xs bg-white border-2 border-gray-200 rounded-2xl px-6 py-4 mb-8">
-          <p className="text-xs text-gray-400 mb-1">Total Pembayaran</p>
-          <p className="text-xl font-extrabold text-gray-800">{fmt(result.totalPrice)}</p>
+        <div className="w-full max-w-xs bg-[#161b22] border-2 border-[#30363d] rounded-2xl px-6 py-4 mb-8">
+          <p className="text-xs text-[#8b949e] mb-1">Total Pembayaran</p>
+          <p className="text-xl font-extrabold text-[#f0f6fc]">{fmt(result.totalPrice)}</p>
         </div>
 
-        <p className="text-sm text-gray-500 mb-6 max-w-xs">
+        <p className="text-sm text-[#8b949e] mb-6 max-w-xs">
           Admin akan memverifikasi pembayaran. Cek status di halaman <strong>Lacak</strong>.
         </p>
         <button
@@ -202,7 +202,7 @@ export default function OrderForm() {
             setProof(null)
             setAvailability(null)
           }}
-          className="w-full max-w-xs bg-blue-600 text-white font-bold py-4 rounded-2xl text-base active:scale-95 transition-transform"
+          className="w-full max-w-xs bg-[#238636] hover:bg-[#2ea043] text-white font-bold py-4 rounded-2xl text-base active:scale-95 transition-all"
         >
           Buat Pesanan Baru
         </button>
@@ -215,8 +215,8 @@ export default function OrderForm() {
   return (
     <form onSubmit={submit} className="space-y-4">
       <div className="pt-2 pb-1">
-        <h1 className="text-2xl font-extrabold text-gray-800">Form Peminjaman</h1>
-        <p className="text-gray-400 text-sm mt-1">Isi data lengkap dan pilih peralatan.</p>
+        <h1 className="text-2xl font-extrabold text-[#f0f6fc]">Form Peminjaman</h1>
+        <p className="text-[#8b949e] text-sm mt-1">Isi data lengkap dan pilih peralatan.</p>
       </div>
 
       {/* 1 — Customer info */}
@@ -253,14 +253,14 @@ export default function OrderForm() {
       <Section number="2" title="Tanggal Peminjaman">
         <DateRange {...dates} onChange={handleDates} />
         {loadingAvail && (
-          <p className="text-xs text-gray-400 mt-2">Memeriksa ketersediaan...</p>
+          <p className="text-xs text-[#8b949e] mt-2">Memeriksa ketersediaan...</p>
         )}
       </Section>
 
       {/* 3 — Items */}
       <Section number="3" title="Pilih Peralatan">
         {!dates.borrowDate || !dates.returnDate
-          ? <p className="text-sm text-gray-400">Pilih tanggal terlebih dahulu untuk melihat ketersediaan stok.</p>
+          ? <p className="text-sm text-[#8b949e]">Pilih tanggal terlebih dahulu untuk melihat ketersediaan stok.</p>
           : <ItemPicker items={items} quantities={quantities} onChange={setQuantities} availability={availability} />
         }
       </Section>
@@ -278,7 +278,7 @@ export default function OrderForm() {
       </Section>
 
       {error && (
-        <div className="bg-red-50 border-2 border-red-200 rounded-2xl px-4 py-3 text-sm text-red-600 font-medium">
+        <div className="bg-[#1c0a09] border-2 border-[#da3633] rounded-2xl px-4 py-3 text-sm text-[#f85149] font-medium">
           {error}
         </div>
       )}
@@ -286,7 +286,7 @@ export default function OrderForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-extrabold py-4 rounded-2xl text-base transition-all disabled:opacity-60 shadow-lg shadow-blue-200"
+        className="w-full bg-[#238636] hover:bg-[#2ea043] active:scale-95 text-white font-extrabold py-4 rounded-2xl text-base transition-all disabled:opacity-60 shadow-lg shadow-[#2ea04333]"
       >
         {loading ? 'Mengirim pesanan...' : 'Kirim Pesanan'}
       </button>

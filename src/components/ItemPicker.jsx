@@ -10,7 +10,7 @@ export default function ItemPicker({ items, quantities, onChange, availability }
 
   if (!items.length) {
     return (
-      <div className="text-center py-8 text-gray-400 text-sm">
+      <div className="text-center py-8 text-[#8b949e] text-sm">
         Memuat katalog...
       </div>
     )
@@ -29,18 +29,18 @@ export default function ItemPicker({ items, quantities, onChange, availability }
           <div
             key={item.id}
             className={`rounded-2xl border-2 p-4 transition-all ${
-              qty > 0         ? 'border-blue-400 bg-blue-50'
-              : unavailable   ? 'border-gray-100 bg-gray-50'
-              :                  'border-gray-200 bg-white'
+              qty > 0         ? 'border-[#3fb950] bg-[#0f2d1a]'
+              : unavailable   ? 'border-[#21262d] bg-[#161b22]'
+              :                  'border-[#30363d] bg-[#161b22]'
             }`}
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0 flex-1">
-                <p className={`font-semibold leading-snug ${unavailable ? 'text-gray-400' : 'text-gray-800'}`}>
+                <p className={`font-semibold leading-snug ${unavailable ? 'text-[#484f58]' : 'text-[#e6edf3]'}`}>
                   {item.name}
                 </p>
                 {item.description && (
-                  <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">{item.description}</p>
+                  <p className="text-xs text-[#8b949e] mt-0.5 leading-relaxed">{item.description}</p>
                 )}
               </div>
               {/* +/- stepper */}
@@ -49,28 +49,28 @@ export default function ItemPicker({ items, quantities, onChange, availability }
                   type="button"
                   disabled={unavailable || qty === 0}
                   onClick={() => set(item.id, qty - 1)}
-                  className="w-9 h-9 rounded-full border-2 border-gray-300 bg-white text-gray-700 font-bold text-xl leading-none flex items-center justify-center disabled:opacity-30 active:scale-95 transition-transform"
+                  className="w-9 h-9 rounded-full border-2 border-[#30363d] bg-[#21262d] text-[#e6edf3] font-bold text-xl leading-none flex items-center justify-center disabled:opacity-30 active:scale-95 transition-transform"
                 >−</button>
-                <span className={`w-7 text-center font-bold text-base ${unavailable ? 'text-gray-300' : 'text-gray-800'}`}>
+                <span className={`w-7 text-center font-bold text-base ${unavailable ? 'text-[#484f58]' : 'text-[#e6edf3]'}`}>
                   {qty}
                 </span>
                 <button
                   type="button"
                   disabled={unavailable || qty >= avail}
                   onClick={() => set(item.id, qty + 1)}
-                  className="w-9 h-9 rounded-full border-2 border-blue-500 bg-blue-500 text-white font-bold text-xl leading-none flex items-center justify-center disabled:opacity-30 active:scale-95 transition-transform"
+                  className="w-9 h-9 rounded-full border-2 border-[#238636] bg-[#238636] text-white font-bold text-xl leading-none flex items-center justify-center disabled:opacity-30 active:scale-95 transition-transform"
                 >+</button>
               </div>
             </div>
 
             <div className="flex items-center justify-between mt-2.5">
-              <span className={`text-sm font-bold ${unavailable ? 'text-gray-400' : 'text-blue-600'}`}>
-                {fmt(item.price_per_day)}<span className="font-normal text-gray-400"> / hari</span>
+              <span className={`text-sm font-bold ${unavailable ? 'text-[#8b949e]' : 'text-[#3fb950]'}`}>
+                {fmt(item.price_per_day)}<span className="font-normal text-[#8b949e]"> / hari</span>
               </span>
               <span className={`text-xs font-medium ${
-                unavailable         ? 'text-red-400'
-                : datesChosen       ? 'text-green-600'
-                :                     'text-gray-400'
+                unavailable         ? 'text-[#f85149]'
+                : datesChosen       ? 'text-[#3fb950]'
+                :                     'text-[#8b949e]'
               }`}>
                 {unavailable
                   ? (datesChosen ? 'Tidak tersedia di tanggal ini' : 'Stok habis')
@@ -84,7 +84,7 @@ export default function ItemPicker({ items, quantities, onChange, availability }
       })}
 
       {availability !== null && (
-        <p className="text-xs text-gray-400 pt-1">
+        <p className="text-xs text-[#8b949e] pt-1">
           Ketersediaan ditampilkan berdasarkan tanggal yang dipilih.
         </p>
       )}

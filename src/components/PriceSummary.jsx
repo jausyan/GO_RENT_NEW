@@ -16,24 +16,24 @@ export default function PriceSummary({ items, quantities, days }) {
   const total = lines.reduce((s, l) => s + l.subtotal, 0)
 
   return (
-    <div className="rounded-2xl border-2 border-gray-200 bg-white overflow-hidden">
-      <div className="px-4 py-3 bg-gray-50 border-b border-gray-200">
-        <p className="text-xs font-bold text-gray-500 uppercase tracking-wide">Ringkasan Biaya</p>
+    <div className="rounded-2xl border-2 border-[#30363d] bg-[#161b22] overflow-hidden">
+      <div className="px-4 py-3 bg-[#21262d] border-b border-[#30363d]">
+        <p className="text-xs font-bold text-[#8b949e] uppercase tracking-wide">Ringkasan Biaya</p>
       </div>
-      <div className="divide-y divide-gray-100">
+      <div className="divide-y divide-[#30363d]">
         {lines.map((l) => (
           <div key={l.name} className="px-4 py-3">
-            <p className="text-sm text-gray-700 font-medium">{l.name}</p>
+            <p className="text-sm text-[#e6edf3] font-medium">{l.name}</p>
             <div className="flex justify-between items-center mt-0.5">
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-[#8b949e]">
                 {l.qty} unit × {days} hari × {fmt(l.ppd)}
               </p>
-              <p className="text-sm font-semibold text-gray-800">{fmt(l.subtotal)}</p>
+              <p className="text-sm font-semibold text-[#f0f6fc]">{fmt(l.subtotal)}</p>
             </div>
           </div>
         ))}
       </div>
-      <div className="flex justify-between items-center px-4 py-4 bg-blue-600">
+      <div className="flex justify-between items-center px-4 py-4 bg-[#238636]">
         <span className="font-bold text-white text-sm">Total Pembayaran</span>
         <span className="font-extrabold text-white text-lg">{fmt(total)}</span>
       </div>
